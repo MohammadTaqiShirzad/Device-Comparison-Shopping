@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { NavLink, useNavigate ,Link} from "react-router-dom"
+import { NavLink, Link} from "react-router-dom"
 import { LuArrowRight, LuMenu, LuShoppingBag, LuX } from "react-icons/lu"
 
 // nav links shown in the header. they match the routes in App.jsx.
@@ -10,8 +10,6 @@ const ROUTES = [
   { path: "/about", label: "About" },
 ]
 
-const COMPARE_PATH = "/compare"
-
 const linkClass = ({ isActive }) =>
   `relative rounded-full px-4 py-2 text-[13.5px] font-semibold transition duration-200 ${
     isActive
@@ -21,8 +19,6 @@ const linkClass = ({ isActive }) =>
 
 const Header = ({ compareIds, cart }) => {
   const [open, setOpen] = useState(false)
-  const [light, setLight] = useState(false)
-  const navigate = useNavigate()
   const planCount = compareIds.length + Object.keys(cart).length
 
 
@@ -68,8 +64,8 @@ const Header = ({ compareIds, cart }) => {
 
           {/* right actions */}
           <div className="flex items-center gap-2.5">
-            <button
-              onClick={() => go("/compare")}
+            <Link
+              to="/compare"
               className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-[13px] font-semibold text-ink transition duration-200 hover:border-primary/40 hover:bg-primary/10 hover:text-primary-text sm:inline-flex"
             >
               <LuShoppingBag size={16} />
@@ -79,7 +75,7 @@ const Header = ({ compareIds, cart }) => {
                   {planCount}
                 </span>
               )}
-            </button>
+            </Link>
             <Link
               to="/contact"
               className="bg-primary hidden rounded-full py-1.5 px-4 md:inline-flex items-center justify-center"
