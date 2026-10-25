@@ -53,7 +53,7 @@ const Header = ({ compareIds, cart }) => {
             {ROUTES.map(({ path, label }) => (
               <NavLink key={path} to={path} className={linkClass}>
                 {label}
-                {path === COMPARE_PATH && planCount > 0 && (
+                {path === "/compare" && planCount > 0 && (
                   <span className="absolute -right-0.5 -top-0.5 grid h-[16px] min-w-[16px] place-items-center rounded-full bg-accent px-1 text-[9px] font-bold text-accent-ink">
                     {planCount}
                   </span>
