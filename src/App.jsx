@@ -11,7 +11,7 @@ import ContactPage from "./pages/ContactPage"
 import { imageForCategory } from "./lib/catalogue"
 
 // all app data lives here in App.jsx. pages get it through Layout as props.
-// devices are fetched from db.json through the /api json-server endpoint.
+// devices are read from public/db.json, which works in dev and after a build.
 
 const MAX_COMPARE = 3
 
@@ -40,16 +40,16 @@ const App = () => {
     return () => clearTimeout(timer)
   }, [message])
 
-  // fetch the devices from db.json (served at /api/devices) when the app starts
+  // fetch the devices from public/db.json when the app starts
   useEffect(() => {
     let active = true
 
     const loadDevices = async () => {
       try {
-        const response = await fetch("/api/devices")
+        const response = await fetch("/db.json")
         if (!response.ok) throw new Error(`Request failed (${response.status})`)
         const data = await response.json()
-        if (active) setDevices(data)
+        if (active) setDevices(data.devices)
       } catch (error) {
         if (active) setLoadError(error.message)
       } finally {

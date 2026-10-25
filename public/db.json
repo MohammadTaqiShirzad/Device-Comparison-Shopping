@@ -1,0 +1,81 @@
+{
+  "devices": [
+    {
+      "id": 1,
+      "title": "iphon 16 pro",
+      "category": "Phones",
+      "image": "/images/phone.webp",
+      "priceAFN": 25000,
+      "storageGB": 128,
+      "memoryGB": 8,
+      "stock": 6,
+      "description": "A dependable everyday phone with a bright display, balanced performance, and all-day battery."
+    },
+    {
+      "id": 2,
+      "title": "dell 1420",
+      "category": "Laptops",
+      "image": "/images/laptop.webp",
+      "priceAFN": 30000,
+      "storageGB": 256,
+      "memoryGB": 8,
+      "stock": 4,
+      "description": "A compact learning laptop suited to study, documents, and lightweight creative work."
+    },
+    {
+      "id": 3,
+      "title": "samsung tab 10",
+      "category": "Tablets",
+      "image": "/images/tablet.webp",
+      "priceAFN": 18000,
+      "storageGB": 64,
+      "memoryGB": 4,
+      "stock": 8,
+      "description": "A flexible tablet for reading, video calls, and entertainment at home or on the move."
+    },
+    {
+      "id": 4,
+      "title": "xiaomi pro",
+      "category": "Phones",
+      "image": "/images/phone.webp",
+      "priceAFN": 42000,
+      "storageGB": 256,
+      "memoryGB": 12,
+      "stock": 0,
+      "description": "A high-capacity phone concept with extra memory for demanding apps and photography."
+    },
+    {
+      "id": 5,
+      "title": "hp spectre",
+      "category": "Laptops",
+      "image": "/images/laptop.webp",
+      "priceAFN": 58000,
+      "storageGB": 512,
+      "memoryGB": 16,
+      "stock": 3,
+      "description": "A slim work laptop with comfortable multitasking performance and generous storage."
+    },
+    {
+      "id": 6,
+      "title": "hp elitebook",
+      "category": "Laptops",
+      "image": "/images/laptop.webp",
+      "priceAFN": 36000,
+      "storageGB": 256,
+      "memoryGB": 8,
+      "stock": 2,
+      "description": "A large-screen laptop made for presentations, multitasking, and focused work."
+    }
+  ],
+  "enquiries": [],
+  "categories": ["Phones", "Laptops", "Tablets"],
+  "deviceDefaults": {
+    "title": "",
+    "category": "Phones",
+    "priceAFN": 0,
+    "storageGB": 0,
+    "memoryGB": 0,
+    "stock": 0,
+    "description": ""
+  }
+}

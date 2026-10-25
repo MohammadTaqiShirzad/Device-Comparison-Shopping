@@ -4,10 +4,11 @@ import tailwindcss from "@tailwindcss/vite"
 import path from "node:path"
 import { createRequire } from "node:module"
 
-// serve db.json as a small rest api at /api during development
+// serve public/db.json as a small rest api at /api during development
+// (public/db.json is fetched as a static file in production builds)
 function jsonDatabase() {
   const require = createRequire(path.join(__dirname, "vite.config.js"))
-  const dbPath = path.join(__dirname, "db.json")
+  const dbPath = path.join(__dirname, "public", "db.json")
 
   return {
     name: "json-database",

@@ -13,7 +13,7 @@ const ROUTES = [
 const linkClass = ({ isActive }) =>
   `relative rounded-full px-4 py-2 text-[13.5px] font-semibold transition duration-200 ${
     isActive
-      ? "bg-primary/12 text-primary"
+      ? "text-primary"
       : "text-muted hover:bg-white/5 hover:text-ink"
   }`
 
