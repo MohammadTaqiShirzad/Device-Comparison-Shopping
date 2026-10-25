@@ -65,6 +65,17 @@
       "memoryGB": 8,
       "stock": 2,
       "description": "A large-screen laptop made for presentations, multitasking, and focused work."
+    },
+    {
+      "title": "دیل",
+      "category": "Laptops",
+      "image": "/images/laptop.webp",
+      "priceAFN": 25000,
+      "storageGB": 512,
+      "memoryGB": 16,
+      "stock": 12,
+      "description": "بیبیسبب",
+      "id": 1792934504278
     }
   ],
   "enquiries": [],
