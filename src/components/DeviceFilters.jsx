@@ -1,5 +1,5 @@
 import { LuSearch } from "react-icons/lu"
-import { categories } from "../../db.json"
+import { categories } from "../lib/catalogue"
 
 const DeviceFilters = ({
   search,

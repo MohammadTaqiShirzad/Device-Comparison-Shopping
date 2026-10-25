@@ -68,7 +68,11 @@
     }
   ],
   "enquiries": [],
-  "categories": ["Phones", "Laptops", "Tablets"],
+  "categories": [
+    "Phones",
+    "Laptops",
+    "Tablets"
+  ],
   "deviceDefaults": {
     "title": "",
     "category": "Phones",

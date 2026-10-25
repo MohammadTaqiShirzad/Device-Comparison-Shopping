@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 import Notice from "./Notice"
-import { categories, deviceDefaults } from "../../db.json"
+import { categories, deviceDefaults } from "../lib/catalogue"
 
 const DeviceForm = ({ initial, onSave, onCancel }) => {
   const [draft, setDraft] = useState(initial ?? deviceDefaults)

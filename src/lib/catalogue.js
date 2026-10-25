@@ -1,4 +1,19 @@
-// shared catalogue helpers. all catalogue data lives in db.json.
+// shared catalogue helpers. the device list lives in public/db.json.
+
+// categories offered by the filters and the device form
+export const categories = ["Phones", "Laptops", "Tablets"]
+
+// starting values for a new catalogue record
+export const deviceDefaults = {
+  title: "",
+  category: "Phones",
+  image: "",
+  priceAFN: 0,
+  storageGB: 0,
+  memoryGB: 0,
+  stock: 0,
+  description: "",
+}
 
 // pick a professional photo for a category from the public folder
 export const imageForCategory = (category) => {
