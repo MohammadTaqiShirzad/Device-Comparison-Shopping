@@ -2,9 +2,9 @@
 
 // pick a professional photo for a category from the public folder
 export const imageForCategory = (category) => {
-  if (category === "Phones") return "/phone.webp"
-  if (category === "Laptops") return "/laptop.webp"
-  return "/tablet.webp"
+  if (category === "Phones") return "/images/phone.webp"
+  if (category === "Laptops") return "/images/laptop.webp"
+  return "/images/tablet.webp"
 }
 
 // show a number as afn money

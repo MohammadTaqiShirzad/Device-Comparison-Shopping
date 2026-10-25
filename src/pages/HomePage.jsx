@@ -73,7 +73,7 @@ const HomePage = () => {
             >
               <span className="eyebrow">Popular practice pick</span>
               <img
-                src="/phone.webp"
+                src="/images/phone.webp"
                 alt="Featured phone"
                 className="h-[270px] w-full rounded-xl object-cover max-sm:h-[215px]"
               />

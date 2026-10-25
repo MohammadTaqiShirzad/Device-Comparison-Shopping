@@ -71,7 +71,8 @@
   "categories": ["Phones", "Laptops", "Tablets"],
   "deviceDefaults": {
     "title": "",
-    "category": "Phones",
+    "category": "",
+    "image": "",
     "priceAFN": 0,
     "storageGB": 0,
     "memoryGB": 0,

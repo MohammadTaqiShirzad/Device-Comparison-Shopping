@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, data, Route, Routes } from "react-router-dom"
 
 import Layout from "./common/Layout"
 import HomePage from "./pages/HomePage"
@@ -8,16 +8,18 @@ import ComparePlanPage from "./pages/ComparePlanPage"
 import ManageDevicesPage from "./pages/ManageDevicesPage"
 import AboutPage from "./pages/AboutPage"
 import ContactPage from "./pages/ContactPage"
-import { devices as allDevices } from "../db.json"
 import { imageForCategory } from "./lib/catalogue"
 
 // all app data lives here in App.jsx. pages get it through Layout as props.
+// devices are fetched from db.json through the /api json-server endpoint.
 
 const MAX_COMPARE = 3
 
 const App = () => {
   // app data
-  const [devices, setDevices] = useState(allDevices)
+  const [devices, setDevices] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState("")
   const [compareIds, setCompareIds] = useState([])
   const [cart, setCart] = useState({})
   const [budget, setBudget] = useState(50000)
@@ -38,11 +40,36 @@ const App = () => {
     return () => clearTimeout(timer)
   }, [message])
 
+  // fetch the devices from db.json (served at /api/devices) when the app starts
+  useEffect(() => {
+    let active = true
+
+    const loadDevices = async () => {
+      try {
+        const response = await fetch("/api/devices")
+        if (!response.ok) throw new Error(`Request failed (${response.status})`)
+        const data = await response.json()
+        if (active) setDevices(data)
+      } catch (error) {
+        if (active) setLoadError(error.message)
+      } finally {
+        if (active) setLoading(false)
+      }
+    }
+    console.log(data)
+
+    loadDevices()
+    // "active" stops the fetch from updating state if the app unmounts first
+    return () => {
+      active = false
+    }
+  }, [])
+
   // step 1: keep only the devices that match the search text
   // step 2: keep only the devices of the chosen category
   // step 3: keep only devices that are in stock (if the switch is on)
   // step 4: sort the list by price if the user asked for it
-  let visible = devices.filter((device) =>
+  let visible = devices?.filter((device) =>
     device.title.toLowerCase().includes(search.toLowerCase()),
   )
   if (category !== "All categories")
@@ -156,6 +183,20 @@ const App = () => {
     closeDetail: () => setDetail(null),
     sendEnquiry,
   }
+
+  if (loading)
+    return (
+      <div className="flex min-h-screen items-center justify-center text-sm text-slate-500">
+        Loading devices…
+      </div>
+    )
+
+  if (loadError)
+    return (
+      <div className="flex min-h-screen items-center justify-center text-sm text-rose-600">
+        Could not load devices: {loadError}
+      </div>
+    )
 
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
